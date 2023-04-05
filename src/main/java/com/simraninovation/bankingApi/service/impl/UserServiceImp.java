@@ -20,8 +20,15 @@ public class UserServiceImp implements UserService {
         userRepository.findAll().forEach(userDetails::add);
         return userDetails;
     }
+    
 
-    @Override
+    public UserServiceImp(UserRepository userRepository) {
+		super();
+		this.userRepository = userRepository;
+	}
+
+
+	@Override
     public User save(User object) {
         System.out.println("Test "+ object);
         return userRepository.save(object);

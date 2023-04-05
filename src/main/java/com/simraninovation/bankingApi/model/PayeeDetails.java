@@ -1,6 +1,8 @@
 package com.simraninovation.bankingApi.model;
 
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -10,6 +12,7 @@ import java.util.Date;
 @Data
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name="Payee")
 public class PayeeDetails {
 
@@ -30,7 +33,7 @@ public class PayeeDetails {
     @CreationTimestamp
     private Date createdDate;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne
     @JoinColumn(name="accountId", referencedColumnName = "id")
     private Account accountId;
 

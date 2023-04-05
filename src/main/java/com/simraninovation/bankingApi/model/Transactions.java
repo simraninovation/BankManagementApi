@@ -1,6 +1,8 @@
 package com.simraninovation.bankingApi.model;
 
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -11,6 +13,7 @@ import java.util.Date;
 @Data
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name="Transactions")
 public class Transactions {
     @Id
@@ -42,10 +45,4 @@ public class Transactions {
     public Long getAccountId() {
         return accountId.id;
     }
-
-	public Transactions() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-    
 }

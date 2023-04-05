@@ -6,7 +6,7 @@ import com.simraninovation.bankingApi.model.Transactions;
 import com.simraninovation.bankingApi.repository.AccountRepository;
 import com.simraninovation.bankingApi.repository.PayeeRepository;
 import com.simraninovation.bankingApi.service.PayeeService;
-import org.hibernate.SessionFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
