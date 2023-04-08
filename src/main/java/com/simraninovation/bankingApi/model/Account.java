@@ -9,7 +9,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import lombok.Setter;
+
+import lombok.ToString;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
@@ -23,8 +26,12 @@ import static javax.persistence.TemporalType.TIMESTAMP;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Getter
 @Setter
+
+@ToString
+
 @Table(name="Account")
 
 public class Account implements Serializable {
@@ -59,9 +66,4 @@ public class Account implements Serializable {
         this.userId = userId;
     }
 
- 
-
-	
-
-	
 }
