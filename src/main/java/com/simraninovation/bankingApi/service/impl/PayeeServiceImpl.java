@@ -9,6 +9,7 @@ import com.simraninovation.bankingApi.service.PayeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -46,6 +47,8 @@ public class PayeeServiceImpl implements PayeeService {
 
     @Override
     public void deleteById(Long aLong) {
+    	payeeRepository.deleteById(aLong);
+    	
 
     }
 
@@ -66,6 +69,12 @@ public class PayeeServiceImpl implements PayeeService {
 //        query.setParameter("id",account.getId());
 //        query.executeUpdate();
 //    }
+    
+    
+    @Override
+    public void updatepayeeDetails(PayeeDetails payeeDetails){
+    	payeeRepository.updatepayeeDetails(payeeDetails.getAccountNumber(),payeeDetails.getId(),payeeDetails.getIfsc(),payeeDetails.getName());
+    }
 
 
 

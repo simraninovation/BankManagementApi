@@ -12,6 +12,10 @@ public interface PayeeService extends CrudService<PayeeDetails, Long> {
     PayeeDetails findById(Long id);
 
     List<PayeeDetails> findByAccount_Id(Account account);
+    
+    void deleteById(Long accountId);
+    
+    void updatepayeeDetails(PayeeDetails payeeDetails);
 
 
 }
