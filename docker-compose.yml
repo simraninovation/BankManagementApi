@@ -3,7 +3,7 @@ services:
 
   sql-server-db:
     container_name: mybankmanagement
-    image: microsoft/mssql-server-linux:2017-latest
+    image: mysql:8
     ports:
       - "1433:1433"
     
