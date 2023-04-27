@@ -1,9 +1,0 @@
-version: "3.2"
-services:
-
-  sql-server-db:
-    container_name: mybankmanagement
-    image: mysql:8
-    ports:
-      - "1433:1433"
-    
