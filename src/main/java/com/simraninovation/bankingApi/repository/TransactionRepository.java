@@ -14,5 +14,7 @@ import java.util.Optional;
 public interface TransactionRepository extends CrudRepository<Transactions, Long> {
 
     List<Transactions> findByAccountId(Account account);
+    List<Transactions> findByAccountIdOrToAccountOrderByCreatedDateDesc(Account account,String accountno);
+    
 
 }

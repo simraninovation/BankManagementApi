@@ -25,7 +25,7 @@ public class PayeeDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
-    @Column(name="AccountNumber")
+    @Column(name="AccountNumber", unique=true)
     private String accountNumber;
 
     @Column(name="IFSC",length=11)

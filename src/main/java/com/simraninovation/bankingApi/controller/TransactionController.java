@@ -2,8 +2,10 @@ package com.simraninovation.bankingApi.controller;
 
 import com.simraninovation.bankingApi.model.Account;
 import com.simraninovation.bankingApi.model.Transactions;
+import com.simraninovation.bankingApi.model.User;
 import com.simraninovation.bankingApi.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,12 +26,15 @@ public class TransactionController {
         return "Transaction Saved!";
     }
 
-    @RequestMapping(value="transaction/{accountId}", method = RequestMethod.GET)
+    @RequestMapping(value="transaction/{accountId}/{accountNumber}", method = RequestMethod.GET)
     @ResponseBody
-    public List<Transactions> getUserTransaction(@PathVariable("accountId") Account account){
-       System.out.println(account);
+    public List<Transactions> getUserTransaction(@PathVariable("accountId") Account account, @PathVariable("accountNumber") String accountno)
+    {
+      
 
-        return transactionService.findByAccount_Id(account);
+        return transactionService.findByAccount_IdOrderByDesc(account,accountno);
 
     }
+    
+   
 }

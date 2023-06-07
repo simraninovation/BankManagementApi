@@ -10,5 +10,6 @@ public interface TransactionService extends CrudService<Transactions, Long>{
         Transactions findById(Long id);
 
         List<Transactions> findByAccount_Id(Account account);
+        List<Transactions> findByAccount_IdOrderByDesc(Account account, String accountno);
 
 }

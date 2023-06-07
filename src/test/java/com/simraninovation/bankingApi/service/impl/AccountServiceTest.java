@@ -112,6 +112,30 @@ public class AccountServiceTest {
         verify(accountRepository, times(1)).findByaccountNumber("12323223");
         verify(accountRepository, never()).findAll();
     }
+    @Test
+    public void testUpdateAccountBalance() {
+       
+        Account accountDetails = new Account();
+        accountDetails.setId(1L);
+        accountDetails.setBalance("1000.0");
+        
+        Account existingAccount = new Account();
+        existingAccount.setId(1L);
+        existingAccount.setBalance("500.0");
+        
+      
+        Mockito.when(accountRepository.findById(1L)).thenReturn(Optional.of(existingAccount));
+        Mockito.when(accountRepository.save(Mockito.any(Account.class))).thenReturn(existingAccount);
+        
+        
+        accountService.updateAccountBalance(accountDetails);
+        
+       
+        Assertions.assertEquals(accountDetails.getBalance(), existingAccount.getBalance());
+        
+       
+        Mockito.verify(accountRepository, Mockito.times(1)).save(existingAccount);
+    }
 
 
 

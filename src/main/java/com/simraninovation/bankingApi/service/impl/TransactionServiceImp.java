@@ -45,6 +45,11 @@ public class TransactionServiceImp implements TransactionService {
     public List<Transactions> findByAccount_Id(Account account) {
         return transactionRepository.findByAccountId(account);
     }
+    
+    @Override
+    public List<Transactions> findByAccount_IdOrderByDesc(Account account, String accountno) {
+        return transactionRepository. findByAccountIdOrToAccountOrderByCreatedDateDesc(account,accountno);
+    }
 
     @Override
     public void delete() {

@@ -17,7 +17,7 @@ import java.util.Set;
 @Service
 public class PayeeServiceImpl implements PayeeService {
     @Autowired
-    private PayeeRepository payeeRepository;
+    private final PayeeRepository payeeRepository;
 
     @Autowired
     private final AccountRepository accountRepository;
@@ -37,6 +37,7 @@ public class PayeeServiceImpl implements PayeeService {
 
     @Override
     public PayeeDetails save(PayeeDetails object) {
+    	System.out.println("hsimran");
         return payeeRepository.save(object);
     }
 

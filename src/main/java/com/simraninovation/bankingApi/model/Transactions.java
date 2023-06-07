@@ -25,7 +25,12 @@ public class Transactions {
 
     @Column(name="amount")
     private String amount;
-
+    
+    @Column(name="transactionType")
+    private String transactionType;
+    
+    @Column(name="toAccount")
+   private String toAccount;
     @CreatedDate
     @CreationTimestamp
     private Date createdDate;

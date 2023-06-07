@@ -19,9 +19,18 @@ public class PayeeController {
     private PayeeService payeeService;
 
     @PostMapping("payee/create")
-    public String saveTransaction(@RequestBody PayeeDetails payeeDetails){
-        payeeService.save(payeeDetails);
-        return "Transaction Saved!";
+    public String saveTransaction(@RequestBody PayeeDetails payeeDetails) throws Exception{
+       try { 
+    	     System.out.println("simran helloooooo");
+           	 payeeService.save(payeeDetails);
+           	return "Transaction Saved!";
+       }catch(Exception e)
+       {
+    	   return "Account already";
+       }
+       
+   
+       
     }
 
     @RequestMapping(value="payee/account/{accountId}", method = RequestMethod.GET)
