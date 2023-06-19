@@ -163,7 +163,7 @@ public class PayeeServiceTest {
     	 user = new User(1L,"test","test","test@test.com","test","12345678");
 
     	 account = new Account(2L,"12323223", "Pune","BK01112675","BOI",new Date(),"100",user);
-    	 payee = new PayeeDetails(3L,"333","BK01112675","ravi",new Date(),account);
+    	 payee = new PayeeDetails(3L,"333","BK01112675","ravi",true,new Date(),account);
 
 
     }

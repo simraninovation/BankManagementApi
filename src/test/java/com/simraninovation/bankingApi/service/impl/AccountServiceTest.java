@@ -117,21 +117,22 @@ public class AccountServiceTest {
        
         Account accountDetails = new Account();
         accountDetails.setId(1L);
-        accountDetails.setBalance("1000.0");
+        accountDetails.setBalance("1000");
         
         Account existingAccount = new Account();
         existingAccount.setId(1L);
-        existingAccount.setBalance("500.0");
+        existingAccount.setBalance("500");
         
       
         Mockito.when(accountRepository.findById(1L)).thenReturn(Optional.of(existingAccount));
         Mockito.when(accountRepository.save(Mockito.any(Account.class))).thenReturn(existingAccount);
         
         
-        accountService.updateAccountBalance(accountDetails);
+       String result =  accountService.updateAccountBalance(accountDetails);
         
        
         Assertions.assertEquals(accountDetails.getBalance(), existingAccount.getBalance());
+        Assertions.assertEquals("Successfully updated", result);
         
        
         Mockito.verify(accountRepository, Mockito.times(1)).save(existingAccount);

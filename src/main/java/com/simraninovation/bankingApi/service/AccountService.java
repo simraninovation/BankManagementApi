@@ -15,7 +15,7 @@ public interface AccountService extends CrudService<Account,Long> {
 
     List<Account> finByUser_Id(User user);
 
-    void updateAccountBalance(Account account);
+    String updateAccountBalance(Account account);
 
 }
 

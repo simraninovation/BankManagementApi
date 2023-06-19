@@ -8,7 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
@@ -28,11 +30,16 @@ public class PayeeDetails {
     @Column(name="AccountNumber", unique=true)
     private String accountNumber;
 
+    
     @Column(name="IFSC",length=11)
-    private String ifsc;
+    
+    private String ifsc="SIBN0002838";
 
-    @Column(name="Name")
+    @Column(name="Name" )
     private String name;
+    
+    @Column(name="isOtherBank")
+    private Boolean isOtherBank;
 
     @CreatedDate
     @CreationTimestamp

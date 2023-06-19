@@ -57,8 +57,10 @@ public class AccountController {
     }
 
     @RequestMapping(value="account/update", method = RequestMethod.POST)
-    public void updateAccountBalance( @RequestBody Account account){
-        accountService.updateAccountBalance(account);
+    public String updateAccountBalance( @RequestBody Account account){
+    
+        return accountService.updateAccountBalance(account);
+        
     }
 
 

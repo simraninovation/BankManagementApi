@@ -64,10 +64,16 @@ public class AccountServiceImpl implements AccountService {
 
 
     @Override
-    public void updateAccountBalance(Account accountDetails){
+    public String updateAccountBalance(Account accountDetails){
+    	if(Integer.parseInt(accountDetails.getBalance())>0) {
         Account account = accountRepository.findById(accountDetails.getId()).orElse(null);;
         account.setBalance((accountDetails.getBalance()));
         accountRepository.save(account);
+        return "Successfully updated";
+    	}
+    	else {
+    		return "Atleast greater than One";
+    	}
     }
 
 
